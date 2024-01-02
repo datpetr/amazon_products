@@ -141,9 +141,15 @@ df["Discount Rate"] = df["Discount Rate"].astype(int)
     print(f"{column} has {percentage_null:.2f}% null values")
 '''
 #By this I checked the null percentages, and it checks all the values are 98%,
-# so I wanted to continue with deleting empty rows.
-df.dropna(how='any', inplace=True)
+# so I wanted to continue with deleting empty rows. (I haven't used dropna since the rows were written as "NA", not NaN
+problematic_values = df[df['Quarterly Sale'].str.strip() == 'NA']
+df = df[df['Quarterly Sales'].str.strip() != 'NA']
+df['Quarterly Sales'] = pd.to_numeric(df['Quarterly Sales'])
+
+"""
+
 #And with this step, the data cleaning part is done.
+
 
 
 """
@@ -159,13 +165,3 @@ for i, cat_value in enumerate(category):
 df["Product ID"] = id
 #print(df["Product ID"][27:])
 """
-
-
-
-
-
-
-
-
-
-
