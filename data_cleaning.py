@@ -75,7 +75,9 @@ print(df.dtypes)
 # It seems that there are no unnecessary strings in numerical values
 
 # 8 - Now to remove the white spaces before the strings
-df["Shipping Method"] = df["Shipping Method"].str.lstrip()
+# df["Shipping Method"] = df["Shipping Method"].str.lstrip()
+df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+
 # And it's done.
 
 # 9 - To format the string values we will check the names for nominal values
@@ -110,7 +112,6 @@ for row in df["Location"]:
 df["Shipping Method"].replace({"European Union": "EU", "United States": "US", "Asia": "ASIA"}, inplace=True)
 ------------------------------------------------------------------
 """
-
 # 10 - We don't have to check if levels of categories are unique since we don't need it to be unique for this data set.
 
 # 11 - We don't need to create a date column since we only have the quarter and year
@@ -130,7 +131,8 @@ for col in df.columns:
         print(f'{col} has {na_amount} NA values')
 
 # the quarterly sales is revenue / unit_sold
-df['Quarterly Sales'] = df['Quarterly Sales'].fillna(df["Revenue"] / df["Units Sold"])
+df['Quarterly Sales'] = df['Quarterly Sales'].replace('NA', pd.NA)
+df['Quarterly Sales'] = df['Quarterly Sales'].fillna(df["Revenue"] // df["Units Sold"])
 
 # In the Seller rating it is impossible to estimate a rating to the product and we have only one na we wouldn't
 # lose so much if we remove one string
@@ -151,7 +153,10 @@ df["Customer Rating"] = df["Customer Rating"].abs().astype(int)
 # some data in year is typed in a wring for example instead of 2019 there is written 20199
 df['Year'] = df['Year'].astype(str)
 df['Year'] = df['Year'].str[:4]
-df['Year'] = df['Year'].astype(int)
+# df['Year'] = df['Year'].astype(int)
+df['Year'] = pd.to_datetime(df['Year'])
+df['Year'] = df['Year'].dt.year
+
 
 # the discount rate has a different values one values with "%" other not let's convert all values to one datatype
 df['Discount Rate'] = pd.to_numeric(df['Discount Rate'], errors='coerce')
@@ -201,47 +206,25 @@ def replace_outliers_with_mean(column):
 for column in df.select_dtypes(include=['number']).columns:
     df[column] = replace_outliers_with_mean(df[column])
 
-"""
-for index, value in enumerate(df["Discount Rate"]):
-    #if type(value) != int:
-        #print(value)by this, I saw the problem is that since some of the values were written with "%" symbol, 
-        some of the rates were interpreted as small floats
-    continue
 
-mask = df["Discount Rate"] < 1
-df.loc[mask, "Discount Rate"] = df.loc[mask, "Discount Rate"] * 100
-df["Discount Rate"] = df["Discount Rate"].astype(str).str.replace('%', '')
-df["Discount Rate"] = pd.to_numeric(df["Discount Rate"], errors='coerce')
-df["Discount Rate"] = df["Discount Rate"].astype(int)
--------------------------------------------------------------------------
-"""
+# make all data in columns in one type
+df['Category'] = df['Category'].replace({'BEATY': 'Beaty', 'ELECTRONICS': 'Electronics', 'Home - Kitchen': 'Home & Kitchen'})
+df['Location'] = df['Location'].replace({'United States': 'US', 'ASIA': 'Asia', 'European Union': 'EU'})
 
-# 16 - At last I checked the rows with missing values.
-'''for column in df:
-    null_count = df[column].isnull().sum()
-    percentage_null = (null_count / len(df)) * 100
-    print(f"{column} has {percentage_null:.2f}% null values")
-'''
-# By this I checked the null percentages, and it checks all the values are 98%,
-# so I wanted to continue with deleting empty rows. (I haven't used dropna since the rows were written as "NA", not NaN
-# problematic_values = df[df['Quarterly Sales'].str.strip() == 'NA']
-# df = df[df['Quarterly Sales'].str.strip() != 'NA']
-# df['Quarterly Sales'] = pd.to_numeric(df['Quarterly Sales'])
+print(df['Category'])
 
-"""
+# change all strings to lower case
+
+# change the datatypes of variables where it needed
+df['Quarterly Sales'] = df['Quarterly Sales'].astype(int)
+df['Seller Rating'] = df['Seller Rating'].astype(int)
+
+# change all variables to lower case
+df = df.applymap(lambda x: x.lower() if isinstance(x, str) else x)
 
 #And with this step, the data cleaning part is done.
+csv_filename = 'data/filtered_amazon.csv'
+df.to_csv(csv_filename, index=False)
 
-
-
-"""
-# 3 -- Then I wanted to continue with changing the product id code for books. I thought that changing it to BK would fix the confusion
-# modified_id = []
-# category = df["Category"]
-# id = df["Product ID"]
-#
-# for i, cat_value in enumerate(category):
-#     if cat_value == "Books":
-#         id[i] = 'BK' + id[i][1:]
-# df["Product ID"] = id
-# print(df["Product ID"][27:])
+csv_filename = 'data/filtered_amazon.xlsx'
+df.to_excel(csv_filename, index=False)
