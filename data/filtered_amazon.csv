@@ -1,0 +1,117 @@
+Category,Year,Quarter,Quarterly Sales,Customer Rating,Seller Rating,Price,Discount Rate,Units Sold,Revenue,Shipping Method,Location,Advertising Cost
+electronics,2018,q1,1200,4,4,200,10,50,10000,standard,us,500
+clothing,2019,q2,800,5,4,50,5,200,16000,express,eu,200
+books,2020,q3,600,4,3,30,15,100,6000,standard,asia,300
+home & kitchen,2021,q4,1500,5,5,120,8,30,45000,express,us,700
+beauty,2018,q1,1000,4,3,80,12,40,40000,standard,eu,400
+electronics,2022,q2,900,4,4,250,8,30,27000,standard,asia,600
+clothing,2019,q3,700,5,5,60,10,150,10500,express,us,300
+books,2020,q4,1200,4,3,35,0,80,9600,standard,eu,250
+home & kitchen,2021,q1,1300,5,4,110,15,20,26000,express,asia,800
+beauty,2018,q2,1100,4,5,90,18,50,55000,standard,us,450
+electronics,2019,q3,950,5,4,220,12,25,23750,express,eu,400
+clothing,2020,q4,850,4,3,55,8,100,42500,standard,asia,300
+books,2021,q1,750,5,5,40,10,120,9000,express,us,200
+home & kitchen,2018,q2,1400,4,4,100,15,35,49000,standard,eu,700
+electronics,2020,q4,800,4,5,200,8,20,16000,standard,us,600
+clothing,2021,q1,600,5,4,50,12,180,10800,express,eu,250
+books,2018,q2,1100,4,3,30,18,40,44000,standard,asia,300
+home & kitchen,2019,q3,1200,5,5,120,10,30,36000,express,us,700
+beauty,2020,q4,1300,4,4,80,15,25,32500,standard,eu,450
+electronics,2021,q1,950,5,3,250,5,50,47500,express,asia,300
+clothing,2018,q2,850,4,4,60,12,150,12750,standard,us,200
+book,2019,q3,750,5,5,35,0,100,15000,express,eu,250
+home & kitchen,2020,q4,1400,4,3,110,20,20,28000,standard,asia,700
+beauty,2021,q1,1050,5,4,90,18,60,63000,express,us,500
+electronics,2018,q2,800,4,5,200,10,40,16000,standard,eu,400
+clothing,2019,q3,950,5,3,50,15,200,28500,express,asia,300
+books,2020,q4,1100,4,4,30,8,80,8800,standard,us,250
+home & kitchen,2021,q1,1200,5,5,120,12,25,30000,express,eu,700
+beauty,2018,q2,1000,4,3,80,20,30,30000,standard,asia,450
+electronics,2019,q3,900,5,4,220,8,25,22500,express,us,600
+clothing,2020,q4,750,4,5,55,18,120,9000,standard,eu,300
+book,2021,q4,1400,5,3,35,15,60,84000,express,asia,500
+home & kitchen,2018,q1,1100,4,4,100,10,50,55000,standard,us,450
+beauty,2019,q2,800,5,5,70,12,30,24000,express,eu,400
+electronics,2020,q3,950,4,3,200,15,25,23750,standard,asia,600
+clothing,2021,q4,70,5,4,60,8,150,10500,express,us,300
+home & kitchen,2019,q2,1300,5,3,110,20,20,26000,express,asia,800
+beauty,2020,q3,1100,4,4,90,18,50,55000,standard,us,450
+electronics,2021,q4,950,5,3,250,12,25,23750,express,eu,400
+clothing,2018,q1,850,4,4,60,8,100,42500,standard,asia,300
+book,2019,q2,750,5,5,35,10,100,15000,express,us,200
+home & kitchen,2020,q3,1400,4,3,110,15,35,49000,standard,eu,700
+beauty,2021,q4,1050,5,4,90,20,60,63000,express,asia,500
+electronics,2018,q1,800,4,5,200,8,20,16000,standard,us,600
+clothing,2019,q2,950,5,4,50,12,180,10800,express,eu,250
+books,2020,q3,1100,4,3,30,18,40,44000,standard,asia,300
+home & kitchen,2021,q4,1200,5,5,120,10,30,36000,express,us,700
+beauty,2018,q1,1050,4,3,80,18,60,63000,standard,eu,450
+electronics,2019,q2,900,5,4,220,5,50,47500,express,asia,300
+clothing,2020,q3,750,4,4,60,12,150,12750,standard,us,200
+books,2021,q1,1400,5,3,35,8,100,15000,express,eu,250
+home & kitchen,2018,q2,1100,4,4,100,15,20,26000,standard,asia,800
+beauty,2019,q3,1050,5,5,70,20,60,63000,express,us,500
+electronics,2020,q4,800,4,5,200,10,40,16000,standard,eu,400
+clothing,2021,q1,600,5,4,50,12,180,10800,express,asia,300
+books,2018,q2,1100,4,3,30,18,40,44000,standard,us,250
+home & kitchen,2019,q3,1200,5,5,120,10,30,36000,express,eu,700
+beauty,2020,q4,1300,4,4,80,15,25,32500,standard,asia,450
+electronics,2021,q1,950,5,3,250,5,50,47500,express,us,300
+clothing,2018,q2,850,4,4,60,12,150,12750,standard,eu,200
+books,2019,q3,750,5,5,35,8,100,15000,express,asia,250
+home & kitchen,2020,q4,1400,4,3,110,20,20,28000,standard,us,700
+beauty,2021,q1,1050,5,4,90,18,60,63000,express,eu,500
+electronics,2018,q2,800,4,5,200,10,40,16000,standard,asia,400
+clothing,2019,q3,950,5,3,50,15,200,28500,express,us,300
+books,2020,q4,1100,4,4,30,8,80,8800,standard,eu,250
+home & kitchen,2021,q2,1200,5,5,120,12,25,30000,express,asia,700
+beauty,2018,q4,1000,4,3,80,20,30,30000,standard,us,450
+electronics,2019,q1,900,5,4,220,8,25,22500,express,eu,600
+clothing,2020,q3,750,4,5,55,18,120,9000,standard,asia,300
+books,2021,q2,1400,5,3,35,15,60,84000,express,us,500
+home & kitchen,2018,q4,1100,4,4,100,10,50,55000,standard,eu,450
+beauty,2019,q1,800,5,5,70,12,30,24000,express,asia,400
+electronics,2020,q3,950,4,3,200,15,25,23750,standard,us,600
+clothing,2021,q2,700,5,4,60,8,150,10500,express,eu,300
+books,2018,q4,1200,4,5,30,5,80,9600,standard,asia,250
+home & kitchen,2019,q1,1300,5,3,110,20,20,26000,express,us,800
+beauty,2020,q3,1100,4,4,90,18,50,55000,standard,eu,450
+electronics,2021,q2,950,5,3,250,12,25,23750,express,asia,400
+clothing,2018,q4,850,4,4,60,8,100,42500,standard,us,300
+books,2019,q1,750,5,5,35,10,100,15000,express,eu,200
+home & kitchen,2020,q3,1400,4,3,110,15,35,49000,standard,asia,700
+beauty,2021,q2,1050,5,4,90,20,60,63000,express,us,500
+electronics,2018,q4,800,4,5,200,8,20,16000,standard,eu,400
+clothing,2019,q1,950,5,4,50,12,180,10800,express,asia,250
+books,2020,q3,1100,4,3,30,18,40,44000,standard,us,300
+home & kitchen,2021,q2,1200,5,5,120,10,30,36000,express,eu,700
+beauty,2018,q4,1000,4,3,80,18,60,63000,standard,asia,450
+clothing,2019,q3,800,5,4,50,5,200,16000,express,eu,200
+books,2020,q2,600,4,3,30,15,100,6000,standard,asia,300
+home & kitchen,2021,q1,1500,5,5,120,8,30,45000,express,us,700
+electronics,2019,q3,1100,3,4,250,20,30,22000,express,asia,600
+clothing,2020,q2,750,5,5,60,10,150,11250,standard,us,300
+books,2021,q1,900,4,3,35,8,80,7200,express,eu,250
+home & kitchen,2018,q4,1400,5,4,110,15,25,35000,standard,asia,800
+beauty,2019,q3,950,4,3,70,12,45,42750,express,us,350
+electronics,2020,q2,1300,4,5,180,10,60,78000,standard,eu,450
+clothing,2021,q1,820,5,4,55,5,180,14760,express,asia,200
+books,2018,q4,580,3,3,40,18,90,5220,standard,us,150
+home & kitchen,2019,q3,1200,4,4,100,12,40,48000,express,eu,500
+beauty,2020,q2,880,5,5,75,8,30,26400,standard,asia,300
+electronics,2021,q1,1100,4,3,220,15,20,22000,express,us,700
+clothing,2018,q4,700,5,4,45,10,120,8400,standard,eu,250
+books,2019,q3,950,4,3,33,12,60,5700,express,asia,180
+home & kitchen,2020,q4,1400,5,5,120,5,35,49000,standard,us,800
+beauty,2021,q1,980,4,3,60,8,50,49000,express,eu,400
+electronics,2018,q2,1250,5,4,200,15,45,56250,standard,asia,600
+clothing,2019,q3,820,3,3,50,10,80,32800,express,us,250
+books,2020,q4,700,4,4,40,5,150,10500,standard,eu,200
+home & kitchen,2021,q1,1600,5,5,130,8,20,32000,express,asia,900
+beauty,2018,q2,1050,4,3,75,12,30,31500,standard,us,350
+electronics,2019,q3,950,5,4,230,18,25,23750,express,eu,500
+clothing,2020,q4,680,4,3,55,8,70,4760,standard,asia,150
+books,2021,q1,880,5,5,38,12,60,5280,express,us,200
+home & kitchen,2018,q2,1300,4,3,90,15,25,32500,standard,eu,600
+beauty,2019,q3,1100,5,5,80,10,40,44000,express,asia,400
