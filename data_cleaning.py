@@ -215,7 +215,10 @@ for column, outliers in outliers_dict.items():
 
 
 # make all data in columns in one type
-df['Category'] = df['Category'].replace({'BEAUTY': 'Beauty', 'ELECTRONICS': 'Electronics', 'Home - Kitchen': 'Home & Kitchen'})
+df['Category'] = df['Category'].replace({'BEAUTY': 'Beauty',
+                                         'ELECTRONICS': 'Electronics',
+                                         'Home - Kitchen': 'Home & Kitchen',
+                                         'Book': 'Books'})
 df['Location'] = df['Location'].replace({'United States': 'US', 'ASIA': 'Asia', 'European Union': 'EU'})
 
 # change all strings to lower case
