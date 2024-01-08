@@ -1,5 +1,4 @@
 import pandas as pd
-
 # You might want to change the first pf.read to read a csv file instead of excel.
 # Also the code I wrote does not
 # change the original file.
@@ -59,11 +58,10 @@ df = pd.read_excel('data/Amazon.xlsx', header=None, skiprows=3)
 
 # 4 -- Then I wanted to begin the process with fixing the column names.
 df.columns = ["Category", "Product ID", "Year", "Quarter", "Quarterly Sales", "Customer Rating", "Seller Rating",
-              "Price",
-              "Discount Rate", "Units Sold", "Revenue", "Shipping Method", "Location", "Advertising Cost"]
+              "Price", "Discount Rate", "Units Sold", "Revenue", "Shipping Method", "Location", "Advertising Cost"]
 
 # 5 - The product ID column is unnecessary for data visualization, so I'm deleting it.
-df = df.drop("Product ID", axis=1)
+# df = df.drop("Product ID", axis=1)
 
 # 6 - Now I'm going to eliminate the duplicates since they are not in the nature of the data.
 duplicates = df.duplicated()
@@ -71,7 +69,7 @@ df.drop_duplicates(inplace=True)
 # And by this, dropped the duplicates.
 
 # 7 - Now I will check if we have any unnecessary strings in the values.
-print(df.dtypes)
+# print(df.dtypes)
 # It seems that there are no unnecessary strings in numerical values
 
 # 8 - Now to remove the white spaces before the strings
@@ -130,20 +128,23 @@ for col in df.columns:
     if na_amount != 0:
         print(f'{col} has {na_amount} NA values')
 
-# the quarterly sales is revenue / unit_sold
+# we've found that values in Quarterly Sales is Revenue divide on Units Sold. So, instead of replacing
+# all data by the mean/median/mode we can just replace it by Revenue divide on Units Sold
 df['Quarterly Sales'] = df['Quarterly Sales'].replace('NA', pd.NA)
 df['Quarterly Sales'] = df['Quarterly Sales'].fillna(df["Revenue"] // df["Units Sold"])
-
-# In the Seller rating it is impossible to estimate a rating to the product and we have only one na we wouldn't
-# lose so much if we remove one string
-df = df.dropna(subset=['Seller Rating'])
+df['Quarterly Sales'] = df['Quarterly Sales'].astype(int)
+# In the seller rating there are NA values. So, let's replace them by
+# median of rating since all data in integer we should use meidna
+df['Seller Rating'].fillna(df['Seller Rating'].median(), inplace=True)
 
 # In the Advertisment cost it is impossible to estimate a advertismant cost to the product and we have only two NA
 # we wouldn't lose so much if we remove two string and also all our data is integer we should change the datatype
 # to integer
 
-df = df.dropna(subset=['Advertising Cost'])
-df["Advertising Cost"] = df["Advertising Cost"].astype(int)
+# df = df.dropna(subset=['Advertising Cost'])
+# df["Advertising Cost"] = df["Advertising Cost"].astype(int)
+# df['Advertising Cost'].fillna(df['Advertising Cost'].mean(), inplace=True)
+df['Advertising Cost'].fillna(df['Advertising Cost'].mean(), inplace=True)
 
 # range of rating is unlikely to be negative since almost all data is ranging
 # from 0 to 5. we should change the negative values to positive one
@@ -153,9 +154,11 @@ df["Customer Rating"] = df["Customer Rating"].abs().astype(int)
 # some data in year is typed in a wring for example instead of 2019 there is written 20199
 df['Year'] = df['Year'].astype(str)
 df['Year'] = df['Year'].str[:4]
-# df['Year'] = df['Year'].astype(int)
-df['Year'] = pd.to_datetime(df['Year'])
-df['Year'] = df['Year'].dt.year
+
+# df['Date'] = df['Year'] + '-' + df['Quarter']
+# df['Year'] = pd.to_datetime(df['Year'])
+
+# df['Year'] = df['Year'].dt.year
 
 
 # the discount rate has a different values one values with "%" other not let's convert all values to one datatype
@@ -171,7 +174,7 @@ def identify_outliers(column):
     IQR = Q3 - Q1
     lower_bound = Q1 - 1.5 * IQR
     upper_bound = Q3 + 1.5 * IQR
-    outliers = column[(column <= lower_bound) | (column >= upper_bound)]
+    outliers = column[(column < lower_bound) | (column > upper_bound)]
     return outliers
 
 # Identify outliers in each column
@@ -181,48 +184,54 @@ for column in df.select_dtypes(include=['number']).columns:
 
 
 print()
-# Displaying outliers
+# Displaying outliers and replacing them by mean
 for column, outliers in outliers_dict.items():
     if not outliers.empty:
         print(f"Outliers in {column}: {outliers.values}")
+        for val in set(outliers):
+            df[column].replace(val, df[column].mean(), inplace=True)
+        df[column] = df[column].astype(int)
     else:
         print(f"No outliers in {column}")
 
-def replace_outliers_with_mean(column):
-    Q1 = column.quantile(0.25)
-    Q3 = column.quantile(0.75)
-    IQR = Q3 - Q1
-    lower_bound = Q1 - 1.5 * IQR
-    upper_bound = Q3 + 1.5 * IQR
-
-    # Identify and replace outliers
-    outliers = column[(column <= lower_bound) | (column >= upper_bound)]
-    df.loc[outliers.index, column.name] = column.mean()
-
-    return column
-
-
-# Replace outliers in each numeric column
-for column in df.select_dtypes(include=['number']).columns:
-    df[column] = replace_outliers_with_mean(df[column])
+# def replace_outliers_with_mean(column):
+#     Q1 = column.quantile(0.25)
+#     Q3 = column.quantile(0.75)
+#     IQR = Q3 - Q1
+#     lower_bound = Q1 - 1.5 * IQR
+#     upper_bound = Q3 + 1.5 * IQR
+#
+#     # Identify and replace outliers
+#     outliers = column[(column < lower_bound) | (column > upper_bound)]
+#     df.loc[outliers.index, column.name] = column.mean()
+#
+#     return column
+#
+#
+# # Replace outliers in each numeric column
+# for column in df.select_dtypes(include=['number']).columns:
+#
+#     df[column] = replace_outliers_with_mean(df[column])
 
 
 # make all data in columns in one type
-df['Category'] = df['Category'].replace({'BEATY': 'Beaty', 'ELECTRONICS': 'Electronics', 'Home - Kitchen': 'Home & Kitchen'})
+df['Category'] = df['Category'].replace({'BEAUTY': 'Beauty', 'ELECTRONICS': 'Electronics', 'Home - Kitchen': 'Home & Kitchen'})
 df['Location'] = df['Location'].replace({'United States': 'US', 'ASIA': 'Asia', 'European Union': 'EU'})
-
-print(df['Category'])
 
 # change all strings to lower case
 
 # change the datatypes of variables where it needed
 df['Quarterly Sales'] = df['Quarterly Sales'].astype(int)
 df['Seller Rating'] = df['Seller Rating'].astype(int)
+df['Advertising Cost'] = df['Advertising Cost'].astype(int)
+
 
 # change all variables to lower case
-df = df.applymap(lambda x: x.lower() if isinstance(x, str) else x)
+# df = df.applymap(lambda x: x.lower() if isinstance(x, str) else x)
+
 
 #And with this step, the data cleaning part is done.
+# Save data to Excel file and csv file
 csv_filename = 'data/filtered_amazon.csv'
 df.to_csv(csv_filename, index=False)
 
