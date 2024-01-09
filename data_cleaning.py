@@ -39,7 +39,7 @@ If the percentage is high (e.g >60%-65%), you can drop the column.
 """
 
 # 0 -- To start with, I have read the file to a dataframe. I wanted to skip the title and the empty row in order to have a better view.
-# print(df.head)
+print(df.head)
 # I checked how it is looking
 # and it seemed fine to me.
 
@@ -181,7 +181,6 @@ def identify_outliers(column):
 outliers_dict = {}
 for column in df.select_dtypes(include=['number']).columns:
     outliers_dict[column] = identify_outliers(df[column])
-
 
 print()
 # Displaying outliers and replacing them by mean
