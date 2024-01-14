@@ -7,7 +7,7 @@ import seaborn as sns
 # We initially had 13 plots when we started coding the visualisations. As we progressed and eliminated them, only 2nd, 5th, 8th, 11th, 13th was left.
 # We decided to keep the names as they were to make it clearer which plot we are referring to.
 
-amazon = pd.read_excel("filtered_amazon.xlsx")  # Loads our Amazon Data Set Excel File into a pandas DataFrame.
+amazon = pd.read_excel("/content/data/filtered/filtered_amazon.xlsx")  # Loads our Amazon Data Set Excel File into a pandas DataFrame.
 
 mpl.rc('font', family="Lucida Sans Unicode", size=12)  # Sets a standard font.
 
@@ -158,17 +158,16 @@ def plot09():
     sns.set(style="darkgrid")  # Sets the background to darkgrid.
 
     # Seaborn bar plot itself and the necessary small custiomizations.
-    ax = sns.barplot(
+    ax = sns.countplot(
         data=amazon,
-        y="Units Sold",
         x="Shipping Method",
         hue="Customer Rating",
         palette=the_colors[:3],
-        errorbar=None
     )
 
     ax.set_xlabel("")
-    ax.set_title("Distribution of Customer Ratings by Shipping Method", fontsize=15,
+    ax.set_ylabel("Count of Products")
+    ax.set_title("           Mean Customer Review of Products by the Shipping Method", fontsize=15,
                  fontweight="bold")  # Setting the labels and titles.
 
     sns.set_theme()
