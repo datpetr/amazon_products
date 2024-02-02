@@ -65,6 +65,7 @@ As we can see in the graph, in 2020, the highest number of sales belonged to the
 **2. Did the 2020 COVID-19 pandemic change the advertising cost of items? Which categories had the highest overall advertising cost throughout 2019-2021?**
 
 ![](RackMultipart20240202-1-4kap9l_html_e2cb3c3fb70cac00.png)
+![](https://drive.google.com/file/d/1tlll18NhLqOHrn6NuTDqs_ken-B2N9F_/view?usp=drive_link)
 
 The graph is a time series line chart. It shows progress in advertisement cost for each of the 5 categories, and we can easily distinguish each category because they are multicolored.
 
