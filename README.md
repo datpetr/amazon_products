@@ -1,7 +1,7 @@
 ## **Introduction to Data Processing and Visualization, Final Project**
 
 ### **Abstract**
- ![](RackMultipart20240202-1-4kap9l_html_832ac086151b03a6.png)
+![amazon](https://github.com/datpetr/amazon_products/assets/57681066/a59889da-7909-4585-a935-8e27af292967)
 
 This project is based on a research of Amazon' sales
 
@@ -50,11 +50,13 @@ We've created the plots below using Seaborn, Matplotlib, and Pandas. The colors 
 
 Before we begin answering the questions with the help of visualizations, it would be helpful to get familiar with the numerical data and its descriptive measures. Below, we see the summarized data. Values were rounded to the second decimal.
 
-With COV (coefficient of variation), we can see how spread the data is. The variable with the highest COV is **"Units sold"** , with 74.42, and the variable with the lowest COV is **"Customer Rating"** , with 12.31. We have 2 columns that we can say are somewhat symmetrically distributed: **"Seller Rating"** and **"discount rate".****"Quarterly Sales" **,**"Customer Rating, price" **,**"Units Sold" **,**"Revenue" **, and**"Advertising Cost"** are skewed to the right. None of the variables are skewed to the left. When we look at the min/max values, we can clearly see that the highest discount rate that Amazon applies is 20%. There are no ratings lower than 3 for either the customer or seller ratings. And the max. revenue is 63000$, more than 1.5 standard deviations away from the mean. However, we didn't count this as an outlier, since the revenue of a product depends on many things and can vary a lot, which might cause very spread values. Thus, the value of 63000 was important for us to include in our analysis. So, in the data analysis part, we checked for the extreme outliers instead of the usual ones. ![](RackMultipart20240202-1-4kap9l_html_ea75a7e6d5005ee5.jpg)
+With COV (coefficient of variation), we can see how spread the data is. The variable with the highest COV is **"Units sold"** , with 74.42, and the variable with the lowest COV is **"Customer Rating"** , with 12.31. We have 2 columns that we can say are somewhat symmetrically distributed: **"Seller Rating"** and **"discount rate".****"Quarterly Sales" **,**"Customer Rating, price" **,**"Units Sold" **,**"Revenue" **, and**"Advertising Cost"** are skewed to the right. None of the variables are skewed to the left. When we look at the min/max values, we can clearly see that the highest discount rate that Amazon applies is 20%. There are no ratings lower than 3 for either the customer or seller ratings. And the max. revenue is 63000$, more than 1.5 standard deviations away from the mean. However, we didn't count this as an outlier, since the revenue of a product depends on many things and can vary a lot, which might cause very spread values. Thus, the value of 63000 was important for us to include in our analysis. So, in the data analysis part, we checked for the extreme outliers instead of the usual ones. 
+![data_descrition](https://github.com/datpetr/amazon_products/assets/57681066/34a1edfd-1158-4d79-88a7-52a1f0d7e5ac)
 
 **Questions and Graphs**
 
-**1. Are there any drastic sales increases or decreases in any categories throughout 2019-2021? Which category had the lowest number of sales in 2020?**![](RackMultipart20240202-1-4kap9l_html_3eded9bc03398bd7.png)
+**1. Are there any drastic sales increases or decreases in any categories throughout 2019-2021? Which category had the lowest number of sales in 2020?**!
+![](https://github.com/datpetr/amazon_products/assets/57681066/3846f128-5f3e-417a-8c09-709d170b87c6)
 
 The graph is a stacked bar chart for the number of units sold for each of the five categories for years from 2019 to 2021. Each category has a separate bar and sections colored based on the year of the sale. For each colorful section, we can see the number of units sold that year, written on top for easier comparison. Overall, it seems like the leader in sales throughout 2019-2021 was the **"Clothing"** category.
 
@@ -64,8 +66,7 @@ As we can see in the graph, in 2020, the highest number of sales belonged to the
 
 **2. Did the 2020 COVID-19 pandemic change the advertising cost of items? Which categories had the highest overall advertising cost throughout 2019-2021?**
 
-![](RackMultipart20240202-1-4kap9l_html_e2cb3c3fb70cac00.png)
-![](https://drive.google.com/file/d/1tlll18NhLqOHrn6NuTDqs_ken-B2N9F_/view?usp=drive_link)
+![](https://github.com/datpetr/amazon_products/assets/57681066/54af1408-3124-4709-996d-ea38689530ce)
 
 The graph is a time series line chart. It shows progress in advertisement cost for each of the 5 categories, and we can easily distinguish each category because they are multicolored.
 
@@ -75,7 +76,7 @@ For the second question, let's examine which categories had the highest advertis
 
 **3. Does the price of an item affect its number of sales? Which region had the highest mean for the price and the units sold?**
 
-![](RackMultipart20240202-1-4kap9l_html_a075379e2f35f943.png)
+![](https://github.com/datpetr/amazon_products/assets/57681066/5e0bc3b0-e0ed-422e-bfd2-c3ea1798c36a)
 
 In the scatter plot above, we can see the correlation between the number of units sold and the price of each item. As we can see above, the plots are separated by the country of sale, and due to this, we can use the information to compare the tendencies between the countries. We also see dashed parallel and vertical lines on each plot representing the mean of "Units Sold" and **"Price."**
 
@@ -85,13 +86,14 @@ When we observe each graph separately, with the help of the dashed lines that re
 
 **4. Does the method of shipping used affect the customer rating?**
 
-![](RackMultipart20240202-1-4kap9l_html_27d5bf62710afaf7.png)
+![](https://github.com/datpetr/amazon_products/assets/57681066/211e5680-0579-4cec-971b-8bba7dfd6d4a)
 
 The graph shows the distribution of the customer ratings (3-5) based on the shipping method used. We used the **"Units Sold"** to measure the number of reviews for each rating. This information can help the company understand the influence of these two topics and possible correlations. As we see in the plot, the most common customer rating is very different based on the shipping method used. We can't be sure this correlation has any direct causation, but it is still vital for future research.
 
 The most common rating for the **"Standard"** delivery option is **'4'** , and the **"Express"** one's **'5'**. Also, we see that the overwhelming majority of reviews were of the values mentioned above. As a result, we can conclude that people rate the **"Express"** shipping method higher than the **"Standard"** one. It may be a sign to bring changes to the **"Standard"** shipping option to improve customer service.
 
-**5. Does higher advertising cost mean higher revenue? What is the optimal advertising cost for the product to have the highest revenue?**![](RackMultipart20240202-1-4kap9l_html_5f99c612a06a9e10.png)
+**5. Does higher advertising cost mean higher revenue? What is the optimal advertising cost for the product to have the highest revenue?**
+![](https://github.com/datpetr/amazon_products/assets/57681066/f36c746a-5543-433c-bf73-a9cde25c7ac9)
 
 This plot is based on a scatter plot of **"Advertising Cost"** and **"Revenue"**. We also can see the line of best fit with a bright orange color. This graph could be associated with the upside-down Amazon logo, as it also has orange and gray tones.
 
@@ -101,7 +103,7 @@ Despite a seemingly strong positive relationship for the part up to ~575$, we sh
 
 **6. If an item has a higher discount rate, which shipping method do people prefer?**
 
-![](RackMultipart20240202-1-4kap9l_html_4c28ffbc4916e9a0.png)
+![](https://github.com/datpetr/amazon_products/assets/57681066/39e03db9-5e66-47da-8616-4a457a68f06f)
 
 In the graph, we can see the violin plot. Let's take a look at the orange graph on the left first. Inside, you can see a narrow black line that takes all the values from 5-20% . It represents all discount rates that goods take. The bold black line is divided by the short white line, and the thinner black lines on the sides represent the whiskers. The part that lies above the white line until the end of the black bold line represents 25% of the date, which had a ~13-20% discount rate. The lower part represents 25% of the data, lying below the median with an ~8-13% discount rate. The short white line is the median, meaning %50 of the data lies above it and the other %50 under it. On the outside, we see that the figure has a changing width. Width represents the number of observations having a specific value. So, a wider area means a higher number of sales for that value, and a narrow area means a lower number of sales. For example, there are equal numbers of goods having 9% and 16% discount rates for standard shipping. On the other hand, for express shipping, 13% and 18% discounts had the same purchase frequency. One of the interesting points of this graph is that the violin plot representing the standard shipping seems to be bimodal, with peak points at %9 and %16.
 
