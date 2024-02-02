@@ -121,11 +121,3 @@ We can see that the high **"Advertising Cost"** doesn't always lead to a high nu
 The most popular way of shipping seems to be the **"Standard Shipping,"** but it has the lowest **"Customer Rating"**. On the contrary, people seem to be satisfied by **"Express Shipping"** since it mostly has **'5'** as **"Customer Rating"**.
 
 While offering actionable insights, further research is needed to understand the complex causal relationships in the dynamic e-commerce landscape.
-
-### GitHub:
-
-The link below directs to the GitHub page that contains the clean data, the code for data cleaning, and the code for visualizations. Furthermore, it contains all the graphs used in this project and the original data that we started with.
-
-[https://github.com/datpetr/amazon\_products/tree/master](https://github.com/datpetr/amazon_products/tree/master)
-
-1
